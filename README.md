@@ -21,9 +21,10 @@
 - ./test - тесты 
   - test_api.py - Api тесты
   - test_ui.py - Ui тесты
- - conftest.py - Файл с фикстурами 
- - user_api.py - Методы для Аpi тестов
- - main_page.py - Методы для UI тестов
+  - conftest.py - Файл с фикстурами
+  - pytest.ini - файл с настройками pytest
+ - User_api.py - Методы для Аpi тестов
+ - Main_page.py - Методы для UI тестов
 
 ### Библиотеки
 - pip install pytest
@@ -38,5 +39,5 @@
 - pytest - m api (Запуск api тестов )
 - pytest - m ui (Запуск ui тестов )
 - python -m pytest --alluredir allure-result (Запустить тесты с указанием пути к каталогу результатов тестирования)
-- allure serve allure-results (Запустить Allure и конвертирует результаты теста в отчет)
+- allure serve allure-result (Запустить Allure и конвертирует результаты теста в отчет)
 

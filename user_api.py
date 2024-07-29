@@ -9,8 +9,8 @@ class Api():
 
     @allure.title("Api. Метод добавления товара в корзину")
     def add_goods(self):
-        data = {"idCookie":"845543",
-                "idProd":"204",
+        data = {"idCookie":"360310",
+                "idProd":"180",
                 "type":"add"
             }
         header = {
@@ -28,8 +28,8 @@ class Api():
 
     @allure.title("Api. Увелечения количества товара в корзине")
     def goods_basket_plus(self):
-        data = {"idCookie":"845543",
-                "idProd":"204",
+        data = {"idCookie":"360310",
+                "idProd":"180",
                 "type":"plus"
             }
         header = {
@@ -50,8 +50,8 @@ class Api():
 
     @allure.title("Api. Удаление товара из корзины")
     def delete_goods_basket(self):
-        data = {"idCookie":"845543",
-                "idProd":"204",
+        data = {"idCookie":"360310",
+                "idProd":"180",
                 "type":"delete"
             }
         header = {

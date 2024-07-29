@@ -1,6 +1,6 @@
 import pytest
 import allure
-from user_api import Api
+from User_api import Api
 
 
 @allure.title("Добавление товара в корзину")
@@ -23,6 +23,7 @@ def test_add_in_basket_goods(api:Api):
                              '<bound method Response.json of <Response [200]>>'"):
                 assert body == '<bound method Response.json of <Response [200]>>'
 
+
 @allure.title("Увелечения количества товара в корзине")
 @allure.feature("PLUS IN BASKET")
 @allure.severity(allure.severity_level.CRITICAL)
@@ -35,8 +36,9 @@ def test_goods_basket_plus(api:Api):
                      увелечения количества товара в корзине"):
         body = api.goods_basket_plus()
         with allure.step("Выполнить проверки"):
-            with allure.step("Проверить что длина списка больше 0"):
-                assert len(body) >= 0
+            with allure.step("Прорверить что сообщение ответа равна\
+                             '<bound method Response.json of <Response [200]>>'"):
+                assert body == '<bound method Response.json of <Response [200]>>'
 
 @allure.title("Удаление товара из корзины")
 @allure.feature("DELETE")
@@ -52,3 +54,6 @@ def test_delete_goods_basket(api:Api):
         with allure.step("Выполнить проверки"):
             with allure.step("Проверить что длина списка больше 0"):
                 assert len(body) >= 0
+            with allure.step("Прорверить что сообщение ответа равна\
+                             '<bound method Response.json of <Response [200]>>'"):
+                assert body == '<bound method Response.json of <Response [200]>>'

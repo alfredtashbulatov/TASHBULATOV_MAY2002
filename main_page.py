@@ -26,13 +26,27 @@ class Main_Page:
                 By.CSS_SELECTOR,
                 'button[attr_item="Рыжики солёные"]'
                 ).click()
-            sleep(5)
+            sleep(2)
+
 
     @allure.title("Добавление количества товара в корзине")
     def plus_goods_in_basket(self):
-        with allure.step("Вызвать метод для\
-                         добавления товара в корзину"):
-            self.add_in_basket()
+        with allure.step("Скрол страницы до нужного элемента"):
+            self.driver.execute_script(
+                "window.scrollTo(0, document.body.scrollHeight);"
+                )
+            element = self.driver.find_element(
+                By.CSS_SELECTOR,
+                'button[attr_item="Рыжики солёные"]')
+            self.driver.execute_script(
+                "arguments[0].scrollIntoView(true);", element)
+            sleep(2)
+        with allure.step("Клик по кнопке 'В корзину'"):
+            self.driver.find_element(
+                By.CSS_SELECTOR,
+                'button[attr_item="Рыжики солёные"]'
+                ).click()
+            sleep(2)
         with allure.step("Переход в корзину корзину'"):
             self.driver.find_element(
                 By.CSS_SELECTOR,'span[class="count_bask_right"]'
@@ -43,7 +57,9 @@ class Main_Page:
                 By.XPATH,
                 '/html/body/div[3]/div[1]/form/div[1]/div/div[2]/div[1]/div[2]/span[2]'
                 ).click()
-            sleep(3)
+            sleep(2)
+        with allure.step("Вызвать метод для клика по кнопке удвления"):
+            self.delete()
 
     @allure.title("Удаление товара из корзины")
     def delete_goods_from_basket(self):
@@ -68,10 +84,12 @@ class Main_Page:
                 'span[class="count_bask_right"]'
                 ).click()
             sleep(1)
-        with allure.step("Клик по кнопке удаления товара из корзины"):
-            self.driver.find_element(
-                By.XPATH,
-                '/html/body/div[3]/div[1]/form/div[1]/div/div[2]/button/img'
-                ).click()
+        with allure.step("Вызвать метод для клика по кнопке удвления"):
+            self.delete()
             sleep(1)
-    
+
+    @allure.title("Клик по кнопке удаления товара из корзины")
+    def delete(self):
+         self.driver.find_element(By.XPATH,
+                                  '/html/body/div[3]/div[1]/form/div[1]/div/div[2]/button/img'
+                                  ).click()

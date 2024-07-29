@@ -1,7 +1,7 @@
 import allure
 import pytest
 from selenium.webdriver.chrome.webdriver import WebDriver
-from main_page import Main_Page as MP
+from Main_page import Main_Page as MP
 
 
 @allure.title("Добавление товара в корзину")
@@ -17,7 +17,7 @@ def test_add_in_basket(driver: WebDriver):
         res = MP(driver)
     with allure.step("Вызвать метод для\
                      добавления товара в корзину"):
-          res.add_in_basket()
+        res.add_in_basket()
 
 @allure.title("Прибовление количества товара в корзине")
 @allure.description("Тест вызывает метод\

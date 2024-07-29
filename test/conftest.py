@@ -1,7 +1,7 @@
 import pytest
 import allure
 from selenium import webdriver
-from user_api import Api
+from User_api import Api
 
 
 @allure.title("Фикстура URL для API-тестов")
